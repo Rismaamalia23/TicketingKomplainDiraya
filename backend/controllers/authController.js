@@ -4,7 +4,7 @@ const User = require('../models/User');
 const DEFAULT_USERS = [
     {
         email: 'admin@superadmin.co.id',
-        password: 'password123',
+        password: 'admin123',
         name: 'Super Admin',
         role: 'SUPER_ADMIN',
         productId: null,
@@ -13,7 +13,7 @@ const DEFAULT_USERS = [
     {
         email: 'jokiinformatika@gmail.com',
         password: 'joki123',
-        name: 'Joki Informatika Admin',
+        name: 'Admin Joki Informatika',
         role: 'PRODUCT_ADMIN',
         productId: 'joki',
         avatar: 'https://ui-avatars.com/api/?name=Joki+Informatika&background=8b5cf6&color=fff'
@@ -21,7 +21,7 @@ const DEFAULT_USERS = [
     {
         email: 'orbitbilliard.id@gmail.com',
         password: 'orbit123',
-        name: 'Orbit Billiard Admin',
+        name: 'Admin Orbit Billiard',
         role: 'PRODUCT_ADMIN',
         productId: 'orbit',
         avatar: 'https://ui-avatars.com/api/?name=Orbit+Billiard&background=ec4899&color=fff'
@@ -29,7 +29,7 @@ const DEFAULT_USERS = [
     {
         email: 'hi@catatmak.com',
         password: 'catatmak123',
-        name: 'Catatmak Admin',
+        name: 'Admin Catatmark',
         role: 'PRODUCT_ADMIN',
         productId: 'catatmak',
         avatar: 'https://ui-avatars.com/api/?name=Catatmak&background=f59e0b&color=fff'
