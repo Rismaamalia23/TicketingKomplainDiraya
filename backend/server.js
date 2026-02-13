@@ -56,7 +56,7 @@ app.get('/', (req, res) => {
 // Start Server
 if (require.main === module) {
     app.listen(PORT, () => {
-        console.log(`🚀 Server running on port ${PORT}`);
+        console.log(`🚀 Server running on port ${PORT} (Vercel Fix 2)`);
     });
 }
 
