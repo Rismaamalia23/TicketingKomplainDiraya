@@ -81,22 +81,16 @@ exports.login = async (req, res) => {
                     if (!user) throw saveErr;
                 }
             } else {
-                // Log failed attempt (user not found)
-                const logMsg = `[${new Date().toISOString()}] FAILED - User not found or default password mismatch. Email: '${email}', Password: '${password}'\n`;
-                fs.appendFileSync(path.join(__dirname, '../login_debug.log'), logMsg);
-
+                console.warn(`[${new Date().toISOString()}] FAILED - User not found. Email: '${email}'`);
                 return res.status(401).json({
                     success: false,
                     message: "Email tidak terdaftar"
                 });
             }
         } else {
-            // Cek password (plain text comparison - in production use bcrypt)
+            // Check password (plain text comparison - in production use bcrypt)
             if (user.password !== password) {
-                // Log failed attempt (password mismatch)
-                const logMsg = `[${new Date().toISOString()}] FAILED - Password mismatch. Email: '${user.email}', DB Password: '${user.password}', Input Password: '${password}'\n`;
-                fs.appendFileSync(path.join(__dirname, '../login_debug.log'), logMsg);
-
+                console.warn(`[${new Date().toISOString()}] FAILED - Password mismatch. Email: '${user.email}'`);
                 return res.status(401).json({
                     success: false,
                     message: "Password salah (Cek caps lock atau spasi)"
@@ -104,10 +98,7 @@ exports.login = async (req, res) => {
             }
         }
 
-        // Login berhasil
-        // Clear log on successful login to indicate success? Or just leave it.
-        const logMsg = `[${new Date().toISOString()}] SUCCESS - Login successful for ${user.email}\n`;
-        fs.appendFileSync(path.join(__dirname, '../login_debug.log'), logMsg);
+        console.log(`[${new Date().toISOString()}] SUCCESS - Login successful for ${user.email}`);
 
         res.json({
             success: true,
