@@ -37,10 +37,6 @@ const DEFAULT_USERS = [
 ];
 
 // Login endpoint
-const fs = require('fs');
-const path = require('path');
-
-// Login endpoint
 exports.login = async (req, res) => {
     try {
         const { email, password } = req.body;
